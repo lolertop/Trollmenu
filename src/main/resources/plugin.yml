@@ -1,0 +1,8 @@
+name: Troll
+version: '${project.version}'
+main: de.lolertop.troll.Troll
+authors: [ lolertop ]
+
+commands:
+  troll:
+  trollmenu:
