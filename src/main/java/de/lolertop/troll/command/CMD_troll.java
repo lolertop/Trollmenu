@@ -19,7 +19,7 @@ public class CMD_troll implements CommandExecutor {
             p.sendMessage("§bTROLOLOLOLOL!");
             return true;
         }
-        Inventory i = Bukkit.createInventory(null , 9*3 , "");
+        Inventory i = Bukkit.createInventory(null , 9*3 , "§5§lTrollmenu");
         if (p.getGameMode() == GameMode.CREATIVE) {
             i.setItem(13, (new ItemBuilder(Material.IRON_SWORD)).setDisplayname("§bSurvival").setLore("§7Setzte dich auf §aSurvival§7!").build());
         } else {
