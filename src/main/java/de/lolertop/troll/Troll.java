@@ -1,7 +1,10 @@
 package de.lolertop.troll;
 
+import de.lolertop.troll.Util.VanishManager;
 import de.lolertop.troll.command.CMD_troll;
+import de.lolertop.troll.event.Listeners;
 import org.bukkit.Bukkit;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Troll extends JavaPlugin {
@@ -23,6 +26,8 @@ public final class Troll extends JavaPlugin {
         getCommand("troll").setExecutor(new CMD_troll());
         getCommand("trollmenu").setExecutor(new CMD_troll());
 
+        PluginManager pm = Bukkit.getPluginManager();
+        pm.registerEvents(new Listeners() , this);
     }
 
     @Override
