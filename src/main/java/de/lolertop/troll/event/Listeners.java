@@ -6,12 +6,14 @@ import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 
 public class Listeners implements Listener {
 
+    @EventHandler
     public void onInvclick(InventoryClickEvent e) {
         Player p = (Player) e.getWhoClicked();
         Inventory i = Bukkit.createInventory(null, 9 * 1, "§6§lSpeed");
@@ -230,7 +232,7 @@ public class Listeners implements Listener {
             }
         }
     }
-
+    @EventHandler
     public void onInvclick1(InventoryClickEvent e) {
         Player p = (Player) e.getWhoClicked();
         if (e.getCurrentItem() == null) return;
@@ -238,6 +240,7 @@ public class Listeners implements Listener {
             e.setCancelled(true);
         }
     }
+    @EventHandler
     public void onInvclick2(InventoryClickEvent e) {
         Player p = (Player) e.getWhoClicked();
         if (e.getCurrentItem() == null) return;
