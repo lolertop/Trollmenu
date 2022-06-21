@@ -29,7 +29,7 @@ public class CMD_troll implements CommandExecutor {
         i.setItem(11, (new ItemBuilder(Material.REDSTONE)).setDisplayname("§cKickall").setLore("§7Kick alle §aSpieler§7!").build());
         i.setItem(0, (new ItemBuilder(Material.GRASS)).setDisplayname("§aHeal").setLore("§aHeile §7dich!").build());
         i.setItem(8, (new ItemBuilder(Material.GLASS)).setDisplayname("§3Vanish").setLore("§7Werde für die Spieler §aunsichbar §7oder §aSichbar§7!").build());
-        i.setItem(18, (new ItemBuilder(Material.PACKED_ICE)).setDisplayname("§b§lFreeze").setLore("§bFrezze §7einen §aSpieler!").build());
+        i.setItem(18, (new ItemBuilder(Material.BARRIER)).setDisplayname(" ").build());
         i.setItem(26, (new ItemBuilder(Material.FEATHER)).setDisplayname("§6§lFly").setLore("§7Fliege in §aSurvival").build());
         i.setItem(14 , new ItemBuilder(Material.STAINED_GLASS_PANE).setDisplayname(" ").build());
 

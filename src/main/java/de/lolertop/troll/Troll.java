@@ -23,11 +23,11 @@ public final class Troll extends JavaPlugin {
         Bukkit.getConsoleSender().sendMessage("§7Author: §clolertop");
         Bukkit.getConsoleSender().sendMessage("§7------------------------------");
 
-        getCommand("troll").setExecutor(new CMD_troll());
-        getCommand("trollmenu").setExecutor(new CMD_troll());
-
         PluginManager pm = Bukkit.getPluginManager();
         pm.registerEvents(new Listeners() , this);
+
+        getCommand("troll").setExecutor(new CMD_troll());
+        getCommand("trollmenu").setExecutor(new CMD_troll());
     }
 
     @Override
