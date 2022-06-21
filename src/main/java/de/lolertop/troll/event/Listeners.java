@@ -2,6 +2,7 @@ package de.lolertop.troll.event;
 
 import de.lolertop.troll.Troll;
 import de.lolertop.troll.Util.ItemBuilder;
+import de.lolertop.troll.Util.VanishManager;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
@@ -9,6 +10,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.Inventory;
 
 public class Listeners implements Listener {
@@ -17,6 +19,7 @@ public class Listeners implements Listener {
     public void onInvclick(InventoryClickEvent e) {
         Player p = (Player) e.getWhoClicked();
         Inventory i = Bukkit.createInventory(null, 9 * 1, "§6§lSpeed");
+        Inventory i1 = Bukkit.createInventory(null, 9 * 1, "§3§lVanish");
         if (e.getCurrentItem() == null) return;
         if (e.getView().getTitle() == "§5§lTrollmenu") {
             e.setCancelled(true);
@@ -65,6 +68,19 @@ public class Listeners implements Listener {
                             p.setFlying(false);
                             p.sendMessage(Troll.prefix + "§7Du kannst nun nicht mehr §cFliegen§7!");
                         }
+                        break;
+                    case "§3Vanish":
+                        i1.setItem(0, new ItemBuilder(Material.STAINED_GLASS_PANE).setDisplayname(" ").build());
+                        i1.setItem(1, new ItemBuilder(Material.STAINED_GLASS_PANE).setDisplayname(" ").build());
+                        i1.setItem(2, new ItemBuilder(Material.SLIME_BALL).setDisplayname("§bUnsichtbar").build());
+                        i1.setItem(3, new ItemBuilder(Material.STAINED_GLASS_PANE).setDisplayname(" ").build());
+                        i1.setItem(4, new ItemBuilder(Material.SPIDER_EYE).setDisplayname("§bAlle spieler wo in vanish sind sehen").build());
+                        i1.setItem(5, new ItemBuilder(Material.STAINED_GLASS_PANE).setDisplayname(" ").build());
+                        i1.setItem(6, new ItemBuilder(Material.REDSTONE_BLOCK).setDisplayname("§bSichbar").build());
+                        i1.setItem(7, new ItemBuilder(Material.STAINED_GLASS_PANE).setDisplayname(" ").build());
+                        i1.setItem(8, new ItemBuilder(Material.STAINED_GLASS_PANE).setDisplayname(" ").build());
+                        p.openInventory(i1);
+                        p.sendMessage(Troll.prefix + "§bVanish beta");
                         break;
                 }
             }
@@ -216,6 +232,7 @@ public class Listeners implements Listener {
                             p.setWalkSpeed(1);
                             p.sendMessage(Troll.prefix + "§7Dein Walk speed wurde auf §a10 §7gesetzt!");
                         }
+                        break;
                 }
             }
         }
@@ -224,29 +241,16 @@ public class Listeners implements Listener {
     @EventHandler
     public void onInvclick3(InventoryClickEvent e) {
         Player p = (Player) e.getWhoClicked();
-        Inventory i1 = Bukkit.createInventory(null, 9 * 1, "§3§lVanish");
         if (e.getCurrentItem() == null) return;
         if (e.getView().getTitle() == "§3§lVanish") {
             e.setCancelled(true);
             if (e.getCurrentItem().getItemMeta().hasDisplayName()) {
                 switch (e.getCurrentItem().getItemMeta().getDisplayName()) {
-                    case "§3Vanish":
-                        i1.setItem(0, new ItemBuilder(Material.STAINED_GLASS_PANE).setDisplayname(" ").build());
-                        i1.setItem(1, new ItemBuilder(Material.STAINED_GLASS_PANE).setDisplayname(" ").build());
-                        i1.setItem(2, new ItemBuilder(Material.SLIME_BALL).setDisplayname("§bUnsichtbar").build());
-                        i1.setItem(3, new ItemBuilder(Material.STAINED_GLASS_PANE).setDisplayname(" ").build());
-                        i1.setItem(4, new ItemBuilder(Material.SPIDER_EYE).setDisplayname("§bAlle spieler wo in vanish sind sehen").build());
-                        i1.setItem(5, new ItemBuilder(Material.STAINED_GLASS_PANE).setDisplayname(" ").build());
-                        i1.setItem(6, new ItemBuilder(Material.REDSTONE_BLOCK).setDisplayname("§bSichbar").build());
-                        i1.setItem(7, new ItemBuilder(Material.STAINED_GLASS_PANE).setDisplayname(" ").build());
-                        i1.setItem(8, new ItemBuilder(Material.STAINED_GLASS_PANE).setDisplayname(" ").build());
-                        p.openInventory(i1);
-                        p.sendMessage(Troll.prefix + "§bVanish beta");
-                        break;
                     case "§bUnsichtbar":
                         for (Player all : Bukkit.getOnlinePlayers()) {
                             all.hidePlayer(p);
                             p.sendMessage(Troll.prefix + "§7Du bist nun für alle unsichbar!");
+                            VanishManager.getManager().setVanished(p , true);
                         }
                         break;
                     case "§bAlle spieler wo in vanish sind sehen":
@@ -259,10 +263,20 @@ public class Listeners implements Listener {
                         for (Player all : Bukkit.getOnlinePlayers()) {
                             all.showPlayer(p);
                             p.sendMessage(Troll.prefix + "§7Du bist nun für alle sichbar!");
+                            VanishManager.getManager().setVanished(p , false);
                         }
                         break;
                 }
             }
         }
     }
-}
+    @EventHandler
+    public void onJoin(PlayerJoinEvent e) {
+    // Wenn der spieler joint soll der gevanished player nicht sichbar sein!
+    /*
+      if (VanishManager.getManager.getVanished) {
+
+       }
+    */
+    }
+    }

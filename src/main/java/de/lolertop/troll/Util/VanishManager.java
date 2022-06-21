@@ -9,6 +9,7 @@ import org.bukkit.plugin.Plugin;
 public class VanishManager {
     private final Plugin plugin;
     private final List<Player> vanished;
+    private static VanishManager Manager;
 
     public VanishManager(Plugin plugin) {
         this.plugin = plugin;
@@ -45,6 +46,10 @@ public class VanishManager {
         this.vanished.forEach((player1) -> {
             player.hidePlayer(player1);
         });
+    }
+
+    public static VanishManager getManager() {
+        return Manager;
     }
 }
 
