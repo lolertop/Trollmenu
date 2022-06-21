@@ -17,7 +17,6 @@ public class Listeners implements Listener {
     public void onInvclick(InventoryClickEvent e) {
         Player p = (Player) e.getWhoClicked();
         Inventory i = Bukkit.createInventory(null, 9 * 1, "§6§lSpeed");
-        Inventory i1 = Bukkit.createInventory(null, 9 * 1, "§3§lVanish");
         if (e.getCurrentItem() == null) return;
         if (e.getView().getTitle() == "§5§lTrollmenu") {
             e.setCancelled(true);
@@ -55,43 +54,6 @@ public class Listeners implements Listener {
                         p.setHealth(20);
                         p.setFoodLevel(20);
                         p.sendMessage(Troll.prefix + "§7Du wurdest nun §agehealt§7!");
-                        break;
-                    case "§3Vanish":
-                        i1.setItem(0, new ItemBuilder(Material.STAINED_GLASS_PANE).setDisplayname(" ").build());
-                        i1.setItem(1, new ItemBuilder(Material.STAINED_GLASS_PANE).setDisplayname(" ").build());
-                        i1.setItem(2, new ItemBuilder(Material.STAINED_GLASS_PANE).setDisplayname(" ").build());
-                        i1.setItem(3, new ItemBuilder(Material.STAINED_GLASS_PANE).setDisplayname(" ").build());
-                        i1.setItem(4, new ItemBuilder(Material.STAINED_GLASS_PANE).setDisplayname(" ").build());
-                        i1.setItem(5, new ItemBuilder(Material.STAINED_GLASS_PANE).setDisplayname(" ").build());
-                        i1.setItem(6, new ItemBuilder(Material.STAINED_GLASS_PANE).setDisplayname(" ").build());
-                        i1.setItem(7, new ItemBuilder(Material.STAINED_GLASS_PANE).setDisplayname(" ").build());
-                        i1.setItem(8, new ItemBuilder(Material.STAINED_GLASS_PANE).setDisplayname(" ").build());
-                        i1.setItem(9, new ItemBuilder(Material.STAINED_GLASS_PANE).setDisplayname(" ").build());
-                        i1.setItem(10, new ItemBuilder(Material.SLIME_BALL).setDisplayname("§bUnsichtbar").build());
-                        i1.setItem(11, new ItemBuilder(Material.STAINED_GLASS_PANE).setDisplayname(" ").build());
-                        i1.setItem(12, new ItemBuilder(Material.SPIDER_EYE).setDisplayname("§bAlle spieler wo in vanish sind sehen").build());
-                        i1.setItem(13, new ItemBuilder(Material.STAINED_GLASS_PANE).setDisplayname(" ").build());
-                        i1.setItem(14, new ItemBuilder(Material.REDSTONE_BLOCK).setDisplayname("§bSichbar").build());
-                        p.openInventory(i1);
-                        p.sendMessage(Troll.prefix + "§bVanish beta");
-                        break;
-                    case "§bUnsichtbar":
-                        for (Player all : Bukkit.getOnlinePlayers()) {
-                            all.hidePlayer(p);
-                            p.sendMessage(Troll.prefix + "§7Du bist nun für alle unsichbar!");
-                        }
-                        break;
-                    case "§bAlle spieler wo in vanish sind sehen":
-                        for (Player all : Bukkit.getOnlinePlayers()) {
-                            p.showPlayer(all);
-                            p.sendMessage(Troll.prefix + "§7Du kannst nun alle sehen!");
-                        }
-                        break;
-                    case "§bSichbar":
-                        for (Player all : Bukkit.getOnlinePlayers()) {
-                            all.showPlayer(p);
-                            p.sendMessage(Troll.prefix + "§7Du bist nun für alle sichbar!");
-                        }
                         break;
                     case "§6§lFly":
                         if (!p.getAllowFlight()) {
@@ -141,46 +103,46 @@ public class Listeners implements Listener {
                         break;
                     case "§6Speed§8:§7 1":
                         if (p.isFlying()) {
-                            p.setFlySpeed(1f);
+                            p.setFlySpeed(0.1f);
                             p.sendMessage(Troll.prefix + "§7Dein Fly speed wurde auf §a1 §7gesetzt!");
                         } else {
-                            p.setWalkSpeed(1f);
+                            p.setWalkSpeed(0.1f);
                             p.sendMessage(Troll.prefix + "§7Dein Walk speed wurde auf §a1 §7gesetzt!");
                         }
                         break;
                     case "§6Speed§8:§7 2":
                         if (p.isFlying()) {
-                            p.setFlySpeed(2f);
+                            p.setFlySpeed(0.2f);
                             p.sendMessage(Troll.prefix + "§7Dein Fly speed wurde auf §a2 §7gesetzt!");
                         } else {
-                            p.setWalkSpeed(2f);
+                            p.setWalkSpeed(0.2f);
                             p.sendMessage(Troll.prefix + "§7Dein Walk speed wurde auf §a2 §7gesetzt!");
                         }
                         break;
                     case "§6Speed§8:§7 3":
                         if (p.isFlying()) {
-                            p.setFlySpeed(3f);
+                            p.setFlySpeed(0.3f);
                             p.sendMessage(Troll.prefix + "§7Dein Fly speed wurde auf §a3 §7gesetzt!");
                         } else {
-                            p.setWalkSpeed(3f);
+                            p.setWalkSpeed(0.3f);
                             p.sendMessage(Troll.prefix + "§7Dein Walk speed wurde auf §a3 §7gesetzt!");
                         }
                         break;
                     case "§6Speed§8:§7 4":
                         if (p.isFlying()) {
-                            p.setFlySpeed(4f);
+                            p.setFlySpeed(0.4f);
                             p.sendMessage(Troll.prefix + "§7Dein Fly speed wurde auf §a4 §7gesetzt!");
                         } else {
-                            p.setWalkSpeed(4f);
+                            p.setWalkSpeed(0.4f);
                             p.sendMessage(Troll.prefix + "§7Dein Walk speed wurde auf §a4 §7gesetzt!");
                         }
                         break;
                     case "§6Speed§8:§7 5":
                         if (p.isFlying()) {
-                            p.setFlySpeed(5f);
+                            p.setFlySpeed(0.5f);
                             p.sendMessage(Troll.prefix + "§7Dein Fly speed wurde auf §a5 §7gesetzt!");
                         } else {
-                            p.setWalkSpeed(5f);
+                            p.setWalkSpeed(0.5f);
                             p.sendMessage(Troll.prefix + "§7Dein Walk speed wurde auf §a5 §7gesetzt!");
                         }
                         break;
@@ -212,37 +174,37 @@ public class Listeners implements Listener {
                         break;
                     case "§6Speed§8:§7 6":
                         if (p.isFlying()) {
-                            p.setFlySpeed(6f);
+                            p.setFlySpeed(0.6f);
                             p.sendMessage(Troll.prefix + "§7Dein Fly speed wurde auf §a6 §7gesetzt!");
                         } else {
-                            p.setWalkSpeed(6f);
+                            p.setWalkSpeed(0.6f);
                             p.sendMessage(Troll.prefix + "§7Dein Walk speed wurde auf §a6 §7gesetzt!");
                         }
                         break;
                     case "§6Speed§8:§7 7":
                         if (p.isFlying()) {
-                            p.setFlySpeed(7f);
+                            p.setFlySpeed(0.7f);
                             p.sendMessage(Troll.prefix + "§7Dein Fly speed wurde auf §a7 §7gesetzt!");
                         } else {
-                            p.setWalkSpeed(7f);
+                            p.setWalkSpeed(0.7f);
                             p.sendMessage(Troll.prefix + "§7Dein Walk speed wurde auf §a7 §7gesetzt!");
                         }
                         break;
                     case "§6Speed§8:§7 8":
                         if (p.isFlying()) {
-                            p.setFlySpeed(8f);
+                            p.setFlySpeed(0.8f);
                             p.sendMessage(Troll.prefix + "§7Dein Fly speed wurde auf §a8 §7gesetzt!");
                         } else {
-                            p.setWalkSpeed(8f);
+                            p.setWalkSpeed(0.8f);
                             p.sendMessage(Troll.prefix + "§7Dein Walk speed wurde auf §a8 §7gesetzt!");
                         }
                         break;
                     case "§6Speed§8:§7 9":
                         if (p.isFlying()) {
-                            p.setFlySpeed(9f);
+                            p.setFlySpeed(0.9f);
                             p.sendMessage(Troll.prefix + "§7Dein Fly speed wurde auf §a9 §7gesetzt!");
                         } else {
-                            p.setWalkSpeed(9f);
+                            p.setWalkSpeed(0.9f);
                             p.sendMessage(Troll.prefix + "§7Dein Walk speed wurde auf §a9 §7gesetzt!");
                         }
                         break;
@@ -254,6 +216,51 @@ public class Listeners implements Listener {
                             p.setWalkSpeed(1);
                             p.sendMessage(Troll.prefix + "§7Dein Walk speed wurde auf §a10 §7gesetzt!");
                         }
+                }
+            }
+        }
+    }
+
+    @EventHandler
+    public void onInvclick3(InventoryClickEvent e) {
+        Player p = (Player) e.getWhoClicked();
+        Inventory i1 = Bukkit.createInventory(null, 9 * 1, "§3§lVanish");
+        if (e.getCurrentItem() == null) return;
+        if (e.getView().getTitle() == "§3§lVanish") {
+            e.setCancelled(true);
+            if (e.getCurrentItem().getItemMeta().hasDisplayName()) {
+                switch (e.getCurrentItem().getItemMeta().getDisplayName()) {
+                    case "§3Vanish":
+                        i1.setItem(0, new ItemBuilder(Material.STAINED_GLASS_PANE).setDisplayname(" ").build());
+                        i1.setItem(1, new ItemBuilder(Material.STAINED_GLASS_PANE).setDisplayname(" ").build());
+                        i1.setItem(2, new ItemBuilder(Material.SLIME_BALL).setDisplayname("§bUnsichtbar").build());
+                        i1.setItem(3, new ItemBuilder(Material.STAINED_GLASS_PANE).setDisplayname(" ").build());
+                        i1.setItem(4, new ItemBuilder(Material.SPIDER_EYE).setDisplayname("§bAlle spieler wo in vanish sind sehen").build());
+                        i1.setItem(5, new ItemBuilder(Material.STAINED_GLASS_PANE).setDisplayname(" ").build());
+                        i1.setItem(6, new ItemBuilder(Material.REDSTONE_BLOCK).setDisplayname("§bSichbar").build());
+                        i1.setItem(7, new ItemBuilder(Material.STAINED_GLASS_PANE).setDisplayname(" ").build());
+                        i1.setItem(8, new ItemBuilder(Material.STAINED_GLASS_PANE).setDisplayname(" ").build());
+                        p.openInventory(i1);
+                        p.sendMessage(Troll.prefix + "§bVanish beta");
+                        break;
+                    case "§bUnsichtbar":
+                        for (Player all : Bukkit.getOnlinePlayers()) {
+                            all.hidePlayer(p);
+                            p.sendMessage(Troll.prefix + "§7Du bist nun für alle unsichbar!");
+                        }
+                        break;
+                    case "§bAlle spieler wo in vanish sind sehen":
+                        for (Player all : Bukkit.getOnlinePlayers()) {
+                            p.showPlayer(all);
+                            p.sendMessage(Troll.prefix + "§7Du kannst nun alle sehen!");
+                        }
+                        break;
+                    case "§bSichbar":
+                        for (Player all : Bukkit.getOnlinePlayers()) {
+                            all.showPlayer(p);
+                            p.sendMessage(Troll.prefix + "§7Du bist nun für alle sichbar!");
+                        }
+                        break;
                 }
             }
         }
