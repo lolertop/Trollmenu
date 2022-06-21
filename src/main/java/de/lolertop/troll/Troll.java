@@ -14,7 +14,7 @@ public final class Troll extends JavaPlugin {
     @Override
     public void onEnable() {
         Bukkit.getConsoleSender().sendMessage("§7------------------------------");
-        Bukkit.getConsoleSender().sendMessage("§7Name: §c§lPlotmenu");
+        Bukkit.getConsoleSender().sendMessage("§7Name: §c§lTrollmenu");
         Bukkit.getConsoleSender().sendMessage("");
         Bukkit.getConsoleSender().sendMessage("§7Plugin: §aOnline");
         Bukkit.getConsoleSender().sendMessage("");

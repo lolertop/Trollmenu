@@ -17,10 +17,9 @@ import java.util.Iterator;
 public class Listeners implements Listener {
 
     public void onInteract(InventoryClickEvent e) {
-        Inventory i = Bukkit.createInventory(null, 9, "§6Speed");
-        Inventory i1 = Bukkit.createInventory(null, 9, "§3§lFreeze");
+        Inventory i = Bukkit.createInventory(null, 9*1, "§6Speed");
         Inventory i2 = Bukkit.createInventory(null, 9, "§3Vanish");
-        Inventory i5 = Bukkit.createInventory(null, 9, "§6Seite§8: §72");
+        Inventory i5 = Bukkit.createInventory(null, 9*3, "§6Seite§8: §72");
         if (e.getCurrentItem() != null) {
             if (e.getView().getTitle() == "§5§lTrollmenu") {
                 Player p = (Player) e.getWhoClicked();
@@ -126,8 +125,8 @@ public class Listeners implements Listener {
     }
     @EventHandler
     public void oninvclick(InventoryClickEvent e) {
-        Inventory i = Bukkit.createInventory((InventoryHolder)null, 9, "§6Speed");
-        Inventory i2 = Bukkit.createInventory((InventoryHolder)null, 9, "§6Seite§8: §72");
+        Inventory i = Bukkit.createInventory((InventoryHolder)null, 9*1, "§6Speed");
+        Inventory i2 = Bukkit.createInventory((InventoryHolder)null, 9*3, "§6Seite§8: §72");
         if (e.getCurrentItem() != null) {
             if (e.getView().getTitle() == "§6Speed") {
                 Player p = (Player) e.getWhoClicked();
