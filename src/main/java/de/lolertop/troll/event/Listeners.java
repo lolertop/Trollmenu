@@ -44,7 +44,7 @@ public class Listeners implements Listener {
                         i.setItem(5, (new ItemBuilder(Material.SLIME_BALL)).setDisplayname("§6Speed§8:§7 5").build());
                         i.setItem(6, (new ItemBuilder(Material.STAINED_GLASS_PANE)).setDisplayname(" ").build());
                         i.setItem(7, (new ItemBuilder(Material.STAINED_GLASS_PANE)).setDisplayname(" ").build());
-                        i.setItem(8, (new ItemBuilder(Material.PAPER)).setDisplayname("§6Seite§8: §72").build());
+                        i.setItem(8, (new ItemBuilder(Material.STAINED_GLASS_PANE)).setDisplayname(" ").build());
                         p.openInventory(i);
                         break;
                     case "§cKickall":
@@ -96,18 +96,6 @@ public class Listeners implements Listener {
             e.setCancelled(true);
             if (e.getCurrentItem().getItemMeta().hasDisplayName()) {
                 switch (e.getCurrentItem().getItemMeta().getDisplayName()) {
-                    case "§6Seite§8: §71":
-                        i.setItem(0, (new ItemBuilder(Material.PACKED_ICE)).setDisplayname("§6Speed§8:§7 0").build());
-                        i.setItem(1, (new ItemBuilder(Material.FEATHER)).setDisplayname("§6Speed§8:§7 1").build());
-                        i.setItem(2, (new ItemBuilder(Material.COAL)).setDisplayname("§6Speed§8:§7 2").build());
-                        i.setItem(3, (new ItemBuilder(Material.FIREWORK)).setDisplayname("§6Speed§8:§7 3").build());
-                        i.setItem(4, (new ItemBuilder(Material.GOLD_BOOTS)).setDisplayname("§6Speed§8:§7 4").build());
-                        i.setItem(5, (new ItemBuilder(Material.SLIME_BALL)).setDisplayname("§6Speed§8:§7 5").build());
-                        i.setItem(6, (new ItemBuilder(Material.STAINED_GLASS_PANE)).setDisplayname(" ").build());
-                        i.setItem(7, (new ItemBuilder(Material.STAINED_GLASS_PANE)).setDisplayname(" ").build());
-                        i.setItem(8, (new ItemBuilder(Material.PAPER)).setDisplayname("§6Seite§8: §72").build());
-                        p.openInventory(i);
-                        break;
                     case "§6Speed§8:§7 0":
                         if (p.isFlying()) {
                             p.setFlySpeed(0f);
@@ -168,77 +156,6 @@ public class Listeners implements Listener {
     }
 
     @EventHandler
-    public void onInvclick2(InventoryClickEvent e) {
-        Player p = (Player) e.getWhoClicked();
-        Inventory i1 = Bukkit.createInventory(null, 9 * 1, "§6§lSeite§8: §72");
-        if (e.getCurrentItem() == null) return;
-        if (e.getView().getTitle() == "§6§lSeite§8: §72") {
-            e.setCancelled(true);
-            if (e.getCurrentItem().getItemMeta().hasDisplayName()) {
-                switch (e.getCurrentItem().getItemMeta().getDisplayName()) {
-                    case "§6Seite§8: §72":
-                        i1.setItem(0, (new ItemBuilder(Material.PACKED_ICE)).setDisplayname("§6Speed§8:§7 6").build());
-                        i1.setItem(1, (new ItemBuilder(Material.FEATHER)).setDisplayname("§6Speed§8:§7 7").build());
-                        i1.setItem(2, (new ItemBuilder(Material.FIREWORK)).setDisplayname("§6Speed§8:§7 8").build());
-                        i1.setItem(3, (new ItemBuilder(Material.SLIME_BALL)).setDisplayname("§6Speed§8:§7 9").build());
-                        i1.setItem(4, (new ItemBuilder(Material.DIAMOND_BOOTS)).setDisplayname("§6Speed§8:§7 10").build());
-                        i1.setItem(5, (new ItemBuilder(Material.STAINED_GLASS_PANE)).setDisplayname(" ").build());
-                        i1.setItem(6, (new ItemBuilder(Material.STAINED_GLASS_PANE)).setDisplayname(" ").build());
-                        i1.setItem(7, (new ItemBuilder(Material.STAINED_GLASS_PANE)).setDisplayname(" ").build());
-                        i1.setItem(8, (new ItemBuilder(Material.PAPER)).setDisplayname("§6Seite§8: §71").build());
-                        p.openInventory(i1);
-                        break;
-                    case "§6Speed§8:§7 6":
-                        if (p.isFlying()) {
-                            p.setFlySpeed(0.6f);
-                            p.sendMessage(Troll.prefix + "§7Dein Fly speed wurde auf §a6 §7gesetzt!");
-                        } else {
-                            p.setWalkSpeed(0.6f);
-                            p.sendMessage(Troll.prefix + "§7Dein Walk speed wurde auf §a6 §7gesetzt!");
-                        }
-                        break;
-                    case "§6Speed§8:§7 7":
-                        if (p.isFlying()) {
-                            p.setFlySpeed(0.7f);
-                            p.sendMessage(Troll.prefix + "§7Dein Fly speed wurde auf §a7 §7gesetzt!");
-                        } else {
-                            p.setWalkSpeed(0.7f);
-                            p.sendMessage(Troll.prefix + "§7Dein Walk speed wurde auf §a7 §7gesetzt!");
-                        }
-                        break;
-                    case "§6Speed§8:§7 8":
-                        if (p.isFlying()) {
-                            p.setFlySpeed(0.8f);
-                            p.sendMessage(Troll.prefix + "§7Dein Fly speed wurde auf §a8 §7gesetzt!");
-                        } else {
-                            p.setWalkSpeed(0.8f);
-                            p.sendMessage(Troll.prefix + "§7Dein Walk speed wurde auf §a8 §7gesetzt!");
-                        }
-                        break;
-                    case "§6Speed§8:§7 9":
-                        if (p.isFlying()) {
-                            p.setFlySpeed(0.9f);
-                            p.sendMessage(Troll.prefix + "§7Dein Fly speed wurde auf §a9 §7gesetzt!");
-                        } else {
-                            p.setWalkSpeed(0.9f);
-                            p.sendMessage(Troll.prefix + "§7Dein Walk speed wurde auf §a9 §7gesetzt!");
-                        }
-                        break;
-                    case "§6Speed§8:§7 10":
-                        if (p.isFlying()) {
-                            p.setFlySpeed(1);
-                            p.sendMessage(Troll.prefix + "§7Dein Fly speed wurde auf §a10 §7gesetzt!");
-                        } else {
-                            p.setWalkSpeed(1);
-                            p.sendMessage(Troll.prefix + "§7Dein Walk speed wurde auf §a10 §7gesetzt!");
-                        }
-                        break;
-                }
-            }
-        }
-    }
-
-    @EventHandler
     public void onInvclick3(InventoryClickEvent e) {
         Player p = (Player) e.getWhoClicked();
         if (e.getCurrentItem() == null) return;
@@ -250,7 +167,6 @@ public class Listeners implements Listener {
                         for (Player all : Bukkit.getOnlinePlayers()) {
                             all.hidePlayer(p);
                             p.sendMessage(Troll.prefix + "§7Du bist nun für alle unsichbar!");
-                            VanishManager.getManager().setVanished(p , true);
                         }
                         break;
                     case "§bAlle spieler wo in vanish sind sehen":
@@ -263,7 +179,6 @@ public class Listeners implements Listener {
                         for (Player all : Bukkit.getOnlinePlayers()) {
                             all.showPlayer(p);
                             p.sendMessage(Troll.prefix + "§7Du bist nun für alle sichbar!");
-                            VanishManager.getManager().setVanished(p , false);
                         }
                         break;
                 }
